@@ -21,6 +21,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         status_bd();
+        txtUsuario.requestFocus();
     }
 
     // MÉTODO PARA TESTAR STATUS DE CONEXÃO COM BANCO DE DADOS AO INICIAR PROGRAMA
@@ -52,8 +53,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
 // MÉTODO PARA VALIDAÇÃO DE USUÁRIO E ACESSO À TELA PRINCIPAL
     private void logar() {
-        String sqlLogin = "SELECT id_usuario, nome_usuario FROM tb_usuarios WHERE login_usuario = ? AND senha_usuario = ?";
-        String sqlLogAcesso = "INSERT INTO tb_log_acessos (id_usuario, operacao_log) VALUES (?, 'entrou')";
+        String sqlLogin = "SELECT id_usuario, nome_usuario, grupo_usuario FROM tb_usuarios WHERE login_usuario = ? AND senha_usuario = ?";
+        String sqlLogAcesso = "INSERT INTO tb_log_acessos (id_usuario, operacao_log) VALUES (?, 'Entrou')";
 
         // VALIDAÇÃO DE CAMPOS OBRIGATÓRIOS
         if (txtUsuario.getText().isEmpty() || txtSenha.getPassword().length == 0) {
@@ -78,6 +79,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
                     int idUsuario = rs.getInt("id_usuario");
                     String nomeUsuario = rs.getString("nome_usuario");
+                    String grupoUsuario = rs.getString("grupo_usuario");
 
                     // REGISTRA LOG
                     try (PreparedStatement pstLog = conexao.prepareStatement(sqlLogAcesso)) {
@@ -92,6 +94,7 @@ public class TelaLogin extends javax.swing.JFrame {
                             TelaMenuPrincipal principal = new TelaMenuPrincipal();
                             TelaMenuPrincipal.lblUsuarioLogado.setText(String.valueOf(idUsuario));
                             TelaMenuPrincipal.lblUsuario.setText(nomeUsuario);
+                            TelaMenuPrincipal.lblGrupo.setText(grupoUsuario);
                             principal.setVisible(true);
                             this.dispose();
 
