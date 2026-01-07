@@ -3,6 +3,7 @@ package br.com.gestaocontas.telas;
 import br.com.gestaocontas.dal.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,22 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
      */
     public TelaMenuPrincipal() {
         initComponents();
+    }
+
+    // MÉTODO PARA VERIFICAR SE A TELA JÁ ESTÁ ABERTA
+    private boolean isTelaAberta(Class<? extends JInternalFrame> clazz) {
+        for (JInternalFrame frame : desktop.getAllFrames()) {
+            if (clazz.isInstance(frame)) {
+                try {
+                    frame.setSelected(true);
+                    frame.toFront();
+                } catch (java.beans.PropertyVetoException e) {
+                    e.printStackTrace();
+                }
+                return true;
+            }
+        }
+        return false;
     }
 
     private void sair() {
@@ -38,6 +55,20 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         }
     }
 
+    private void telaSobre() {
+        TelaSobreSistema sobre = new TelaSobreSistema();
+        sobre.setVisible(true);
+    }
+
+    // MÉTODO PARA ABRIR TELA DE CADASTRO DE USUÁRIO
+    private void cadastro_usuario() {
+        if (!isTelaAberta(TelaCadastroUsuario.class)) {
+            TelaCadastroUsuario usuario = new TelaCadastroUsuario();
+            desktop.add(usuario);
+            usuario.setVisible(true);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,12 +85,18 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         lblUsuarioLogado = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        lblGrupo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnInfo = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         desktop = new javax.swing.JDesktopPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menu = new javax.swing.JMenuBar();
+        menuCadastro = new javax.swing.JMenu();
+        menuCadCatContas = new javax.swing.JMenuItem();
+        menuCadCentroCusto = new javax.swing.JMenuItem();
+        menuCadFornecedor = new javax.swing.JMenuItem();
+        menuCadFontePag = new javax.swing.JMenuItem();
+        menuCadUsuarios = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -82,6 +119,9 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
         jLabel5.setText("Data");
 
+        lblGrupo.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        lblGrupo.setText("Grupo");
+
         javax.swing.GroupLayout panelUsuarioLogadoLayout = new javax.swing.GroupLayout(panelUsuarioLogado);
         panelUsuarioLogado.setLayout(panelUsuarioLogadoLayout);
         panelUsuarioLogadoLayout.setHorizontalGroup(
@@ -94,7 +134,8 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelUsuarioLogadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsuario)
-                            .addComponent(jLabel5)))
+                            .addComponent(jLabel5)
+                            .addComponent(lblGrupo)))
                     .addGroup(panelUsuarioLogadoLayout.createSequentialGroup()
                         .addComponent(lblID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -110,17 +151,26 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(lblUsuarioLogado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelUsuarioLogadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addGroup(panelUsuarioLogadoLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelUsuarioLogadoLayout.createSequentialGroup()
                         .addComponent(lblUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblGrupo)))
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/gestaocontas/icones/info_48px.png"))); // NOI18N
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInfoActionPerformed(evt);
+            }
+        });
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/gestaocontas/icones/sair_48px.png"))); // NOI18N
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +204,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 763, Short.MAX_VALUE)
+            .addGap(0, 762, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelFundoLayout = new javax.swing.GroupLayout(panelFundo);
@@ -184,13 +234,34 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        menuCadastro.setText("Cadastro");
+
+        menuCadCatContas.setText("Categoria de Contas");
+        menuCadastro.add(menuCadCatContas);
+
+        menuCadCentroCusto.setText("Centro de Custos");
+        menuCadastro.add(menuCadCentroCusto);
+
+        menuCadFornecedor.setText("Fonecedor");
+        menuCadastro.add(menuCadFornecedor);
+
+        menuCadFontePag.setText("Fonte Pagadora");
+        menuCadastro.add(menuCadFontePag);
+
+        menuCadUsuarios.setText("Usuários");
+        menuCadUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadUsuariosActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(menuCadUsuarios);
+
+        menu.add(menuCadastro);
 
         jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menu.add(jMenu2);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,6 +281,14 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         sair();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
+        telaSobre();
+    }//GEN-LAST:event_btnInfoActionPerformed
+
+    private void menuCadUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadUsuariosActionPerformed
+        cadastro_usuario();
+    }//GEN-LAST:event_menuCadUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,13 +321,19 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblGrupo;
     private javax.swing.JLabel lblID;
     public static javax.swing.JLabel lblUsuario;
     public static javax.swing.JLabel lblUsuarioLogado;
+    private javax.swing.JMenuBar menu;
+    private javax.swing.JMenuItem menuCadCatContas;
+    private javax.swing.JMenuItem menuCadCentroCusto;
+    private javax.swing.JMenuItem menuCadFontePag;
+    private javax.swing.JMenuItem menuCadFornecedor;
+    private javax.swing.JMenuItem menuCadUsuarios;
+    private javax.swing.JMenu menuCadastro;
     private javax.swing.JPanel panelFundo;
     private javax.swing.JPanel panelUsuarioLogado;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,8 @@
         <group>
             <file>file:/home/caio/NetBeansProjects/gestaoContas/src/br/com/gestaocontas/telas/TelaMenuPrincipal.java</file>
             <file>file:/home/caio/NetBeansProjects/gestaoContas/src/br/com/gestaocontas/telas/TelaLogin.java</file>
+            <file>file:/home/caio/NetBeansProjects/gestaoContas/src/br/com/gestaocontas/models/Usuarios.java</file>
+            <file>file:/home/caio/NetBeansProjects/gestaoContas/src/br/com/gestaocontas/telas/TelaCadastroUsuario.java</file>
         </group>
     </open-files>
 </project-private>
