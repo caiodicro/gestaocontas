@@ -120,24 +120,12 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JPasswordField" name="txtSenha">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtUsuario">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblUsuario">
+        <Component class="javax.swing.JLabel" name="lblGestaoContas">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Fira Sans" size="14" style="1"/>
+              <Font name="Fira Sans" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblSenha">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Fira Sans" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Senha"/>
+            <Property name="text" type="java.lang.String" value="Gest&#xe3;o de Contas 1.0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLogo">
@@ -145,32 +133,6 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/br/com/gestaocontas/icones/logo_64px.png"/>
             </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnLogin">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Fira Sans" size="15" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Login"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblStatusBD">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/gestaocontas/icones/bd_erro_64px.png"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblGestaoContas">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Fira Sans" size="20" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Gest&#xe3;o de Contas 1.0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnInfo">
@@ -185,6 +147,44 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInfoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblUsuario">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Fira Sans" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtUsuario">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSenha">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Fira Sans" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Senha"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="txtSenha">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblStatusBD">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/br/com/gestaocontas/icones/bd_erro_64px.png"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnLogin">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Fira Sans" size="15" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Login"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

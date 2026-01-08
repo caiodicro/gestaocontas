@@ -121,41 +121,25 @@ public class TelaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         panelFundo = new javax.swing.JPanel();
-        txtSenha = new javax.swing.JPasswordField();
-        txtUsuario = new javax.swing.JTextField();
-        lblUsuario = new javax.swing.JLabel();
-        lblSenha = new javax.swing.JLabel();
-        lblLogo = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JButton();
-        lblStatusBD = new javax.swing.JLabel();
         lblGestaoContas = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
         btnInfo = new javax.swing.JButton();
+        lblUsuario = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        lblSenha = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
+        lblStatusBD = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestão Contas 1.0 - Login");
 
         panelFundo.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblUsuario.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        lblUsuario.setText("Usuário");
-
-        lblSenha.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        lblSenha.setText("Senha");
-
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/gestaocontas/icones/logo_64px.png"))); // NOI18N
-
-        btnLogin.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
-        btnLogin.setText("Login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
-
-        lblStatusBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/gestaocontas/icones/bd_erro_64px.png"))); // NOI18N
-
         lblGestaoContas.setFont(new java.awt.Font("Fira Sans", 1, 20)); // NOI18N
         lblGestaoContas.setText("Gestão de Contas 1.0");
+
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/gestaocontas/icones/logo_64px.png"))); // NOI18N
 
         btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/gestaocontas/icones/info_48px.png"))); // NOI18N
         btnInfo.setToolTipText("Informações sobre o Software");
@@ -163,6 +147,22 @@ public class TelaLogin extends javax.swing.JFrame {
         btnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfoActionPerformed(evt);
+            }
+        });
+
+        lblUsuario.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        lblUsuario.setText("Usuário");
+
+        lblSenha.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
+        lblSenha.setText("Senha");
+
+        lblStatusBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/gestaocontas/icones/bd_erro_64px.png"))); // NOI18N
+
+        btnLogin.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
             }
         });
 

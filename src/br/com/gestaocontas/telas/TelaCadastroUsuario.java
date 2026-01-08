@@ -343,24 +343,24 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         lblCadastroUsuarios = new javax.swing.JLabel();
         panelFormCadastro = new javax.swing.JPanel();
         lblID = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        lblNome = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
+        lblNome = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
         lblLogin = new javax.swing.JLabel();
-        lblContato = new javax.swing.JLabel();
-        lblSenha = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
+        lblSenha = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
         lblConfirmaSenha = new javax.swing.JLabel();
         txtConfirmaSenha = new javax.swing.JPasswordField();
-        txtSenha = new javax.swing.JPasswordField();
-        txtObs = new javax.swing.JTextField();
-        lblStatus = new javax.swing.JLabel();
-        cboGrupo = new javax.swing.JComboBox<>();
-        lblObs = new javax.swing.JLabel();
-        cboStatus = new javax.swing.JComboBox<>();
+        lblContato = new javax.swing.JLabel();
         txtContato = new javax.swing.JTextField();
+        lblStatus = new javax.swing.JLabel();
+        cboStatus = new javax.swing.JComboBox<>();
+        lblObs = new javax.swing.JLabel();
+        txtObs = new javax.swing.JTextField();
         lblGrupo = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        cboGrupo = new javax.swing.JComboBox<>();
+        panelBotoes = new javax.swing.JPanel();
         btnSalvar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
@@ -389,16 +389,13 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         lblID.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
         lblID.setText("ID");
 
+        txtID.setEnabled(false);
+
         lblNome.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
         lblNome.setText("Nome*");
 
-        txtID.setEnabled(false);
-
         lblLogin.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
         lblLogin.setText("Login*");
-
-        lblContato.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
-        lblContato.setText("Contato*");
 
         lblSenha.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
         lblSenha.setText("Senha*");
@@ -406,18 +403,21 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         lblConfirmaSenha.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
         lblConfirmaSenha.setText("Confirma Senha*");
 
+        lblContato.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
+        lblContato.setText("Contato*");
+
         lblStatus.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
         lblStatus.setText("Status*");
 
-        cboGrupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione>", "Usuário", "Administrador" }));
+        cboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione>", "Ativo", "Inativo" }));
 
         lblObs.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
         lblObs.setText("Observação");
 
-        cboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione>", "Ativo", "Inativo" }));
-
         lblGrupo.setFont(new java.awt.Font("Fira Sans", 1, 15)); // NOI18N
         lblGrupo.setText("Grupo*");
+
+        cboGrupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione>", "Usuário", "Administrador" }));
 
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/gestaocontas/icones/salvar_64px.png"))); // NOI18N
         btnSalvar.setToolTipText("Criar Usuário");
@@ -444,11 +444,11 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelBotoesLayout = new javax.swing.GroupLayout(panelBotoes);
+        panelBotoes.setLayout(panelBotoesLayout);
+        panelBotoesLayout.setHorizontalGroup(
+            panelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotoesLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -456,11 +456,11 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelBotoesLayout.setVerticalGroup(
+            panelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(panelBotoesLayout.createSequentialGroup()
                 .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -500,7 +500,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFormCadastroLayout.createSequentialGroup()
                         .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtNome))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
@@ -515,7 +515,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
                             .addComponent(lblID)))
                     .addGroup(panelFormCadastroLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelFormCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNome)
@@ -696,7 +696,6 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cboGrupo;
     private javax.swing.JComboBox<String> cboStatus;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCadastroUsuarios;
     private javax.swing.JLabel lblConfirmaSenha;
@@ -711,6 +710,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblPesquisar;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblStatus;
+    private javax.swing.JPanel panelBotoes;
     private javax.swing.JPanel panelFormCadastro;
     private javax.swing.JPanel panelFundo;
     private javax.swing.JPanel panelPesquisar;

@@ -71,6 +71,15 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         }
     }
 
+    // MÉTODO PARA ABRIR TELA DE CADASTRO DE USUÁRIO
+    private void cadastro_categoria_conta() {
+        if (!isTelaAberta(TelaCadastroCatContas.class)) {
+            TelaCadastroCatContas catConta = new TelaCadastroCatContas();
+            desktop.add(catConta);
+            catConta.setVisible(true);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -253,6 +262,11 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         menuCadastro.setText("Cadastro");
 
         menuCadCatContas.setText("Categoria de Contas");
+        menuCadCatContas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadCatContasActionPerformed(evt);
+            }
+        });
         menuCadastro.add(menuCadCatContas);
 
         menuCadCentroCusto.setText("Centro de Custos");
@@ -315,6 +329,10 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         sair();
     }//GEN-LAST:event_formWindowClosing
+
+    private void menuCadCatContasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadCatContasActionPerformed
+        cadastro_categoria_conta();
+    }//GEN-LAST:event_menuCadCatContasActionPerformed
 
     /**
      * @param args the command line arguments
